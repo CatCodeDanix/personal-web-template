@@ -32,7 +32,7 @@
       sizes="16x16"
       href="./assets/favicon/favicon-16x16.png"
     />
-    <link rel="manifest" href="./assets/favicon/site.webmanifest" />
+    <!-- <link rel="manifest" href="./assets/favicon/site.webmanifest" /> -->
     <link
       rel="mask-icon"
       href="./assets/favicon/safari-pinned-tab.svg"
@@ -42,11 +42,14 @@
     <meta name="theme-color" content="#ffffff" />
 
     <!-- OGP -->
-    <meta property="og:title" content="Template" />
+    <meta property="og:title" content="Nursing Report Generator" />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="#" />
-    <meta property="og:image" content="#" />
-    <meta property="og:description" content="A template for future projects" />
+    <meta property="og:url" content="https://nursingreport.zibatadbir.ir" />
+    <!-- <meta property="og:image" content="#" /> -->
+    <meta
+      property="og:description"
+      content="Generate Report of your nursing care in record time!"
+    />
     <meta property="og:locale" content="fa_IR" />
 
     <!-- Stylesheets -->
@@ -54,10 +57,7 @@
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
   /> -->
-    <!-- <link
-      rel="stylesheet"
-      href="https://cdn.statically.io/gh/CatCode69/mpp/main/user-login-dependency/plyr.css"
-    /> -->
+
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.rtl.min.css"
@@ -67,7 +67,7 @@
       rel="stylesheet"
       type="text/css"
     />
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <!-- <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" /> -->
     <link rel="stylesheet" href="./assets/css/styles.css" />
 
     <!-- Scripts -->
@@ -76,10 +76,154 @@
       defer
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
     ></script>
-    <script defer src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- <script defer src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script> -->
     <script defer src="./assets/js/script.js"></script>
 
-    <title>Template</title>
+    <title>Nursing Report Generator</title>
   </head>
-  <body></body>
+  <body>
+    <header>
+      <h1 class="text-center">گزارش نویس پرستاری</h1>
+    </header>
+    <main class="container">
+      <div class="row">
+        <form class="mt-4 mb-4 p-2 bg-info rounded" id="patientsDatalistForm">
+          <label for="patient" class="form-label">بیمار قبلی</label>
+          <input
+            list="patients"
+            name="patient"
+            id="patient"
+            class="form-control"
+          />
+          <datalist id="patients"></datalist>
+          <button
+            type="submit"
+            id="generateReportForOptBtn"
+            class="mt-3 btn btn-sm btn-success"
+          >
+            تهیه گزارش
+          </button>
+          <button
+            type="button"
+            id="resetLocalStorageAndForms"
+            class="mt-3 btn btn-sm btn-danger"
+          >
+            حذف تاریخچه
+          </button>
+        </form>
+      </div>
+      <div class="row">
+        <h2>اطلاعات پایه</h2>
+        <form id="patientInfoForm">
+          <div class="mb-3">
+            <label for="name" class="form-label">نام و نام خانوادگی</label>
+            <input
+              type="text"
+              class="form-control"
+              id="name"
+              name="name"
+              aria-describedby="name"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="age" class="form-label">سن</label>
+            <input
+              type="number"
+              class="form-control"
+              id="age"
+              name="age"
+              aria-describedby="age"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="name" class="form-label">جنسیت</label>
+            <select id="gender" class="form-select" aria-label="Gender">
+              <option selected></option>
+              <option value="مرد">مرد</option>
+              <option value="زن">زن</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="physician" class="form-label">نام پزشک</label>
+            <input
+              type="text"
+              class="form-control"
+              id="physician"
+              name="physician"
+              aria-describedby="physician"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="diagnosis" class="form-label">تشخیص</label>
+            <input
+              type="text"
+              class="form-control"
+              id="diagnosis"
+              name="diagnosis"
+              aria-describedby="diagnosis"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="diet" class="form-label">رژیم غذایی</label>
+            <input
+              type="text"
+              class="form-control"
+              id="diet"
+              name="diet"
+              aria-describedby="diet"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="activity" class="form-label">میزان فعالیت</label>
+            <input
+              type="text"
+              class="form-control"
+              id="activity"
+              name="activity"
+              aria-describedby="activity"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="connections" class="form-label">اتصالات بیمار</label>
+            <input
+              type="text"
+              class="form-control"
+              id="connections"
+              name="connections"
+              aria-describedby="connections"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="cover" class="form-label">هم‌پوشانی</label>
+            <input
+              type="text"
+              class="form-control"
+              id="cover"
+              name="cover"
+              aria-describedby="cover"
+            />
+          </div>
+          <div class="form-check mb-3">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              value=""
+              id="bsChart"
+            />
+            <label class="form-check-label" for="bsChart"> چک BS </label>
+          </div>
+          <div class="form-controls">
+            <button
+              class="btn btn-primary"
+              type="submit"
+              id="patientInfoFormSubmitBtn"
+            >
+              ثبت
+            </button>
+          </div>
+        </form>
+      </div>
+    </main>
+    <article id="report"></article>
+  </body>
 </html>
