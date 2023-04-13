@@ -5,14 +5,14 @@
   margin: 0;
   padding: 0;
   font-family: inherit;
-  font-feature-settings: "ss01";
+  font-feature-settings: 'ss01';
 }
 
 html {
   box-sizing: border-box;
-  font-family: Vazirmatn, sans-serif;
 }
 
 body {
   min-height: 100vh;
+  font-family: Vazirmatn, sans-serif;
 }
